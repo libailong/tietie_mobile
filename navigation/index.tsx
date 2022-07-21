@@ -71,8 +71,8 @@ const CoursesStack = createNativeStackNavigator();
 
 function CoursesStackScreen() {
     return (
-        <CoursesStack.Navigator initialRouteName='Pokebox' screenOptions={{ headerTransparent: true }}>
-            <CoursesStack.Screen name="Pokebox" component={CoursesScreen} />
+        <CoursesStack.Navigator screenOptions={{ headerTransparent: false }}>
+            <CoursesStack.Screen name="Courses" component={CoursesScreen} />
         </CoursesStack.Navigator>
     )
 }
@@ -82,7 +82,7 @@ const ReferralStack = createNativeStackNavigator();
 function ReferralStackScreen() {
     return (
         <ReferralStack.Navigator>
-            <ReferralStack.Screen name="News" component={ReferralScreen}/>
+            <ReferralStack.Screen name="Referral" component={ReferralScreen}/>
         </ReferralStack.Navigator>
     )
 }
@@ -92,7 +92,7 @@ const LifestyleStack = createNativeStackNavigator();
 function LifestyleStackScreen() {
     return (
         <LifestyleStack.Navigator>
-            <LifestyleStack.Screen name="Community" component={LifeStyleScreen}/>
+            <LifestyleStack.Screen name="Lifestyle" component={LifeStyleScreen}/>
         </LifestyleStack.Navigator>
     )
 }
@@ -102,7 +102,7 @@ const PersonalStack = createNativeStackNavigator();
 function PersonalStackScreen() {
     return (
         <PersonalStack.Navigator>
-            <PersonalStack.Screen name="Profile" component={PersonalScreen}/>
+            <PersonalStack.Screen name="Personal" component={PersonalScreen}/>
         </PersonalStack.Navigator>
     )
 }
