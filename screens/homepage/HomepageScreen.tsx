@@ -1,4 +1,5 @@
 import { StyleSheet, Text, View } from 'react-native'
+import Button from '../../components/Button'
 import React from 'react'
 
 type Props = {}
@@ -6,7 +7,12 @@ type Props = {}
 const HomepageScreen = (props: Props) => {
       return (
             <View>
-                  <Text>HomepageScreen</Text>
+                  <Button
+                        onPress={() => {
+
+                        }}
+                        title="Button"
+                  />
             </View>
       )
 }
