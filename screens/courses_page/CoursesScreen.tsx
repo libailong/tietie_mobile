@@ -1,12 +1,15 @@
 import { StyleSheet, Text, View } from 'react-native'
+import SegmentedPicker from '../../components/SegmentedPicker'
 import React from 'react'
 
 type Props = {}
 
 const CoursesScreen = (props: Props) => {
       return (
-            <View>
-                  <Text>CoursesScreen</Text>
+            <View style={{flex: 1, backgroundColor: "green"}}>
+                  <SegmentedPicker
+                        data={{"A": "b", "C": "d", "E": "f"}}
+                  />
             </View>
       )
 }
