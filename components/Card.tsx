@@ -8,16 +8,16 @@ type Props = {
 }
 
 const Card = (props: Props) => {
-  return (
-      <TouchableOpacity
-            onPress={ props.onPress }
-            disabled={ props.onPress === undefined }
-      >
-            <View style={ [styles.card, props.style] }>
-                  { props.children }
-            </View>
-      </TouchableOpacity>
-  )
+      return (
+            <TouchableOpacity
+                  onPress={props.onPress}
+                  disabled={props.onPress === undefined}
+            >
+                  <View style={[styles.card, props.style]}>
+                        {props.children}
+                  </View>
+            </TouchableOpacity>
+      )
 }
 
 export default Card

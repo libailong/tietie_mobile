@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native'
 import SegmentedPicker from '../../components/SegmentedPicker'
 import React from 'react'
+import UserInfoHeader from '../../components/UserInfoHeader'
 
 type Props = {}
 
@@ -10,6 +11,10 @@ const CoursesScreen = (props: Props) => {
                   <SegmentedPicker
                         data={{"A": "b", "C": "d", "E": "f"}}
                   />
+                  <UserInfoHeader
+                        username='User_10001'
+                        subHeadline='Jun 26 2022, Sun'
+                  ></UserInfoHeader>
             </View>
       )
 }
