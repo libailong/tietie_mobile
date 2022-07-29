@@ -2,6 +2,7 @@ import { StyleSheet, Text, View , FlatList,ListRenderItem} from 'react-native'
 import CardView from './CardView'
 import React from 'react'
 import Card from '../../components/Card';
+import SearchBar from '../../components/SearchBar'
 
 type Props = {}
 
@@ -28,8 +29,11 @@ const cardValue : Card[]= [
 
 
 const HomepageScreen = (props: Props) => {
+      const onSubmit =  (searchText: string) => {};
+      
       return (
             <>
+               <SearchBar  onSubmit={onSubmit}></SearchBar>
                <FlatList 
                 numColumns={2}
                 data={cardValue}
