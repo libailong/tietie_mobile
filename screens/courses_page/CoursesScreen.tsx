@@ -1,9 +1,13 @@
 import { StyleSheet, Text, View } from 'react-native'
 import SegmentedPicker from '../../components/SegmentedPicker'
 import React , { useEffect, useState } from 'react'
-import CardList from './card_list/CardList'
+import CardList from './card_list'
+import type { NativeStackScreenProps } from '@react-navigation/native-stack';
+import {CoursesStackParams} from '../../navigation'
 
-type Props = {}
+
+type Props = NativeStackScreenProps<CoursesStackParams,'Courses'>;
+
 
 type Card = {
       title: string;
@@ -32,14 +36,20 @@ let value : Card[]= [
     
 ];
 
-const CoursesScreen = (props: Props) => {
+const CoursesScreen = ({ route,navigation}:Props) => {
+
+      const onPress = () => {
+            navigation.navigate('Details')
+            console.log('this is a card')
+          }
+
       const [label, changeLabel] = useState("b");
       const [cardValue,setCardValue] = useState(value);
 
       const labelChange = (value: any) => {
             changeLabel(value);
       }
-
+     
       useEffect(() => {
             value = value.map((card:Card) =>  {
                   let temp = card;
@@ -55,7 +65,7 @@ const CoursesScreen = (props: Props) => {
                         data={{"A": "b", "C": "d", "E": "f"}}
                         onValueChanged={labelChange}
                   />
-                  <CardList data={cardValue}></CardList>
+                  <CardList data={cardValue} onPress={onPress}></CardList>
             </View>
       )
 }
