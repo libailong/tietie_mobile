@@ -13,7 +13,7 @@ import PersonalScreen from "../screens/personal_page/PersonalScreen";
 
 export type RootStackParams = {
     HomeStack: undefined;
-    CoursesStack: undefined;
+    CoursesStack: CoursesStackParams;
     ReferralStack: undefined;
     LifestyleStack: undefined;
     PersonalStack: undefined;
@@ -68,6 +68,13 @@ function HomeStackScreen() {
 }
 
 const CoursesStack = createNativeStackNavigator();
+export type CoursesStackParams = {
+    Courses: undefined,
+    Detail: {
+        // props goes here
+    }
+}
+
 
 function CoursesStackScreen() {
     return (
