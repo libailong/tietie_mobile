@@ -1,6 +1,8 @@
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import React from 'react';
-import {StyleSheet, Text, View, Image} from 'react-native';
+import {StyleSheet, Text, View, Image, Alert} from 'react-native';
 import Card from '../../../components/Card';
+
 
 type Card = {
   title: string;
@@ -13,11 +15,15 @@ type Card = {
   contentimage: string;
 };
 
-type CardProps = {
+type Props = {
   card: Card;
+  onPress?: () => void;
 };
 
-const CardView = (props: CardProps) => {
+const CardView = (props: Props) => {
+  
+  
+  
   const {
     username,
     userimage,
@@ -28,7 +34,7 @@ const CardView = (props: CardProps) => {
     subtitle_2,
     title,
   } = props.card;
-  //console.log(image);
+  
   const cardDom = (
     <View style={styles.Container}>
       <View>
@@ -65,7 +71,7 @@ const CardView = (props: CardProps) => {
 
   return (
     <>
-      <Card children={cardDom}></Card>
+      <Card children={cardDom} onPress={props.onPress}></Card>
     </>
   );
 };

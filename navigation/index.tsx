@@ -10,6 +10,7 @@ import CoursesScreen from "../screens/courses_page/CoursesScreen";
 import ReferralScreen from "../screens/referral_page/ReferralScreen";
 import LifeStyleScreen from "../screens/lifestyle_page/LifestyleScreen";
 import PersonalScreen from "../screens/personal_page/PersonalScreen";
+import CoursesDetail from '../screens/courses_page/courses_detail';
 
 export type RootStackParams = {
     HomeStack: undefined;
@@ -69,17 +70,15 @@ function HomeStackScreen() {
 
 const CoursesStack = createNativeStackNavigator();
 export type CoursesStackParams = {
-    Courses: undefined,
-    Detail: {
-        // props goes here
-    }
+    Courses: undefined;
+    Details: undefined;
 }
-
 
 function CoursesStackScreen() {
     return (
         <CoursesStack.Navigator screenOptions={{ headerTransparent: false }}>
             <CoursesStack.Screen name="Courses" component={CoursesScreen} />
+            <CoursesStack.Screen name="Details" component={CoursesDetail} />
         </CoursesStack.Navigator>
     )
 }

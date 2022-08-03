@@ -5,6 +5,7 @@ import Card from '../../../components/Card';
 
 type Props = {
   data: Array<Card>;
+  onPress?: () => void;
 };
 
 type Card = {
@@ -18,7 +19,7 @@ type Card = {
   contentimage: string;
 };
 
-const LifestyleScreen = (props: Props) => {
+const CardList = (props: Props) => {
   return (
     <>
       <FlatList
@@ -26,14 +27,14 @@ const LifestyleScreen = (props: Props) => {
         data={props.data}
         renderItem={({item}: {item: Card}) => (
           <View style={styles.card}>
-            <CardView card={item} />
+            <CardView card={item} onPress={props.onPress}/>
           </View>
         )}></FlatList>
     </>
   );
 };
 
-export default LifestyleScreen;
+export default CardList;
 
 const styles = StyleSheet.create({
   card: {
