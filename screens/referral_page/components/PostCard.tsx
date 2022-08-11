@@ -12,11 +12,15 @@ type Props = {
       company: string;
       location: string;
       desc: string;
+      username: string;
+      postTime: string;
 }
 
 const PostCard = (props: Props) => {
       return (
-            <Card style={styles.container}>
+            <Card style={styles.container}
+                  onPress={() => {}}
+            >
                   <View style={styles.jobInfoContainer}>
                         <View style={{ marginRight: 10 }}>
                               <View style={styles.jobHeader}>
@@ -37,8 +41,8 @@ const PostCard = (props: Props) => {
                   <HorizontalDivider />
 
                   <UserInfoHeader
-                        username='User_10001'
-                        subHeadline='Jun 26 2022, Sun'
+                        username={props.username}
+                        subHeadline={props.postTime}
                   />
             </Card>
       )
