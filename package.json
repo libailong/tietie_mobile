@@ -15,6 +15,7 @@
     "@react-navigation/native-stack": "^6.7.0",
     "@rneui/base": "^4.0.0-rc.6",
     "@rneui/themed": "^4.0.0-rc.6",
+    "@types/node": "^18.7.6",
     "install": "^0.13.0",
     "lodash": "^4.17.21",
     "npm": "^8.14.0",

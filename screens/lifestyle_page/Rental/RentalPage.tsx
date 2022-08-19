@@ -1,36 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
 import {View} from 'react-native';
 import {House} from './House';
 import RentalCardList from './RentalCardList';
+import { server } from "../../../config";
 
-const houses: Array<House> = [
-    {
-        title: 'House1',
-        description: 'description1',
-        uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtp4zY9y85b1jeJbuEzkP_oaEUaGz1HZ12Am1SpSddSQ&s',
-        price: 300,
-    },
-    {
-        title: 'House2',
-        description: 'description2',
-        uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6gagCctNKqdQc3MMpE1yn302aRLDCyWcXFitqYb4FJw&s',
-        price: 400,
-    },
-    {
-        title: 'House2',
-        description: 'description2',
-        uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6gagCctNKqdQc3MMpE1yn302aRLDCyWcXFitqYb4FJw&s',
-        price: 400,
-    },
-    {
-        title: 'House2',
-        description: 'description2',
-        uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6gagCctNKqdQc3MMpE1yn302aRLDCyWcXFitqYb4FJw&s',
-        price: 400,
-    },
-];
 
 const RentalPage = () => {
+    const [houses, setHouses] = useState([]);
+    useEffect(() => {
+        fetch(`${server}/api/rental/rentals`, {
+            headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Headers': 'Content-Type',
+                'Access-Control-Allow-Origin': '*',
+            },
+        }).then(response => {
+            if (!response.ok) {
+                throw new Error(`Error! status: ${response.status}`);
+            }
+            response.json().then(data => setHouses(data.houses));
+        });
+    }, []);
     return (
         <View>
             <RentalCardList houses={houses} />

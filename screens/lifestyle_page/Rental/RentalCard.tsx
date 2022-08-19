@@ -28,6 +28,7 @@ const style = StyleSheet.create({
     },
     address: {
         textAlignVertical: 'bottom',
+        maxWidth: 150,
     },
 });
 
@@ -35,12 +36,18 @@ const RentalCard = (props: Props) => {
     const house = props.house;
     return (
         <Card>
-            <Card.Image source={{uri: house.uri}} />
-            <Card.Title style={style.cardTitle}>{house.title}</Card.Title>
+            <Card.Image
+                source={{
+                    uri:
+                        house.pictures[0] ||
+                        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6gagCctNKqdQc3MMpE1yn302aRLDCyWcXFitqYb4FJw&s',
+                }}
+            />
+            <Card.Title style={style.cardTitle}>{house.name}</Card.Title>
             <Text style={style.cardDescription}>{house.description}</Text>
             <View style={style.priceWrapper}>
                 <Text style={style.cardPrice}>${house.price}/month</Text>
-                <Text style={style.address}>address</Text>
+                <Text style={style.address}>{house.address}</Text>
             </View>
         </Card>
     );
