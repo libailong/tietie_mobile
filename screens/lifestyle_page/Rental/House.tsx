@@ -1,6 +1,7 @@
 export type House = {
-    title: string;
+    name: string;
     description: string;
-    uri: string;
+    pictures: Array<string>;
     price: number;
+    address: string;
 };
