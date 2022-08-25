@@ -7,7 +7,7 @@ type Props = {
     house: House;
 };
 
-const style = StyleSheet.create({
+export const style = StyleSheet.create({
     cardTitle: {
         textAlign: 'left',
         marginTop: 10,
