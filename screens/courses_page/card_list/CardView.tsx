@@ -50,7 +50,7 @@ const CardView = (props: Props) => {
         {content}
       </Text>
       <View style={{flexDirection: 'row', paddingBottom: 20}}>
-        <Image style={styles.image} source={{uri: userimage}} />
+        <Image style={styles.image} source={require('./images/icon-192x192.png')} />
 
         <View>
           <Text style={{fontSize: 18, fontWeight: 'bold', marginBottom: 10}}>
