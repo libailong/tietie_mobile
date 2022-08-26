@@ -34,7 +34,7 @@ const CardView = (props: CardProps) => {
     <View style={styles.Container}>
       <View style={{ flexDirection: 'row', paddingBottom: 20 }}>
         <Image style={styles.image}
-          source={{ uri: image }} />
+          source={require('./images/icon-192x192.png')} />
 
         <View>
           <Text style={{
