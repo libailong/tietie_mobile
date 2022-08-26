@@ -24,7 +24,7 @@ export default Card
 
 const styles = StyleSheet.create({
       card: {
-            backgroundColor: "rgba(255, 255, 255, 0.3)",
+            backgroundColor: "rgba(255, 255, 255, 1)",
             paddingHorizontal: 5,
             paddingVertical: 5,
             borderRadius: 3,

@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+import { cos } from 'react-native-reanimated';
 
 type Props = {
       color?: string;
@@ -32,3 +33,4 @@ const styles = StyleSheet.create({
            marginVertical: 0
       }
 })
+
