@@ -14,7 +14,7 @@ type Card = {
 }
 
 // static uri, should be changed in different localhost
-const staticImage = "/Users/hanyiyu/Documents/code/tietie_mobile/screens/homepage/images/icon-192x192.png";
+const staticImage = "./images/icon-192x192.png";
 
 const cardValue : Card[]= [
 

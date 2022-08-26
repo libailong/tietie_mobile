@@ -29,7 +29,7 @@ type CardProps = {
 
 const CardView = (props: CardProps) => {
   const { username, image, date, content } = props.card;
-  console.log(image);
+  //console.log(image);
   const cardDom =
     <View style={styles.Container}>
       <View style={{ flexDirection: 'row', paddingBottom: 20 }}>
