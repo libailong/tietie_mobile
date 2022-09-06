@@ -9,7 +9,7 @@ type Props = {
 
 
 const Comment = (props: Props) => {
-      const commentCardDom = props.info.map((info)=><CommentCard info={info}></CommentCard>)
+      const commentCardDom = props.info.map((info)=><CommentCard key={info.username+info.subHeadline} info={info}></CommentCard>)
 
       return (
            <ScrollView>
