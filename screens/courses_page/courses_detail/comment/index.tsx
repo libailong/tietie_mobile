@@ -1,23 +1,40 @@
-import { StyleSheet, Text, View , ImageSourcePropType, ScrollView } from 'react-native'
-import React from 'react'
-import CommentCard, {CommentInfo} from './CommentCard'
+import {
+  StyleSheet,
+  Text,
+  View,
+  ImageSourcePropType,
+  ScrollView,
+  KeyboardAvoidingView,
+  TextInput,
+  Platform,
+} from 'react-native';
+import React from 'react';
+import CommentCard, {CommentInfo} from './CommentCard';
+import SearchBar from '../../../../components/SearchBar';
 
 type Props = {
-      info:Array<CommentInfo>,
-}
-
-
+  info: Array<CommentInfo>;
+};
 
 const Comment = (props: Props) => {
-      const commentCardDom = props.info.map((info)=><CommentCard key={info.username+info.subHeadline} info={info}></CommentCard>)
+  const commentCardDom = props.info.map(info => (
+    <CommentCard
+      key={info.username + info.subHeadline}
+      info={info}></CommentCard>
+  ));
+  const onSubmit = (searchText: string) => {};
+  return (
+    <>
+      <ScrollView>{commentCardDom}</ScrollView>
+      <KeyboardAvoidingView
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        keyboardVerticalOffset={93}>
+        <SearchBar onSubmit={onSubmit} />
+      </KeyboardAvoidingView>
+    </>
+  );
+};
 
-      return (
-           <ScrollView>
-           {commentCardDom}
-           </ScrollView>
-      )
-}
+export default Comment;
 
-export default Comment
-
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({});
