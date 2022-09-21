@@ -2,6 +2,7 @@ import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import React from 'react';
 import {StyleSheet, Text, View, Image, Alert} from 'react-native';
 import Card from '../../../components/Card';
+import {CardType} from '../../courses_page/CoursesScreen'
 
 
 type Card = {
@@ -16,7 +17,7 @@ type Card = {
 };
 
 type Props = {
-  card: Card;
+  card: CardType;
   onPress?: () => void;
 };
 
@@ -25,13 +26,12 @@ const CardView = (props: Props) => {
   
   
   const {
-    username,
-    userimage,
-    date,
-    content,
-    contentimage,
-    subtitle_1,
-    subtitle_2,
+    user_name,
+    id,
+    courseName,
+    professor,
+    semester,
+    comments,
     title,
   } = props.card;
   
@@ -39,29 +39,29 @@ const CardView = (props: Props) => {
     <View style={styles.Container}>
       <View>
         <Text style={styles.title}>{title}</Text>
-        <Text style={styles.subtitle}>{subtitle_1}</Text>
-        <Text style={styles.subtitle}>{subtitle_2}</Text>
+        <Text style={styles.subtitle}>{courseName+' '+semester}</Text>
+        <Text style={styles.subtitle}>{professor}</Text>
       </View>
       <Text
         style={{
           fontSize: 20,
           marginBottom: 20,
         }}>
-        {content}
+        {comments}
       </Text>
       <View style={{flexDirection: 'row', paddingBottom: 20}}>
         <Image style={styles.image} source={require('./images/icon-192x192.png')} />
 
         <View>
           <Text style={{fontSize: 18, fontWeight: 'bold', marginBottom: 10}}>
-            {username}
+            {user_name}
           </Text>
           <Text
             style={{
               color: 'lightgray',
               fontWeight: 'bold',
             }}>
-            {date}
+            {id}
           </Text>
         </View>
       </View>
