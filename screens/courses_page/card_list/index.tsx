@@ -1,26 +1,24 @@
 import {StyleSheet, Text, View, FlatList, ScrollView} from 'react-native';
 import React from 'react';
 import CardView from './CardView';
-import Card from '../../../components/Card';
+
 import {CardType} from '../../courses_page/CoursesScreen'
+// import {CoursesStackParams} from '../../../navigation';
+// import type {NativeStackScreenProps} from '@react-navigation/native-stack';
+
+// //type Props = NativeStackScreenProps<CoursesStackParams, 'Courses'>;
 
 type Props = {
   data: Array<CardType>;
-  onPress?: () => void;
+  onPress?: (item:CardType) => void;
 };
 
-// type Card = {
-//   title: string;
-//   subtitle_1: string;
-//   subtitle_2: string;
-//   content: string;
-//   username: string;
-//   date: string;
-//   userimage: string;
-//   contentimage: string;
-// };
 
 const CardList = (props: Props) => {
+  // const onPress = () => {
+  //   navigation.navigate('Details');
+  // };
+
   return (
     <>
       <FlatList

@@ -4,21 +4,9 @@ import {StyleSheet, Text, View, Image, Alert} from 'react-native';
 import Card from '../../../components/Card';
 import {CardType} from '../../courses_page/CoursesScreen'
 
-
-type Card = {
-  title: string;
-  subtitle_1: string;
-  subtitle_2: string;
-  content: string;
-  username: string;
-  date: string;
-  userimage: string;
-  contentimage: string;
-};
-
 type Props = {
   card: CardType;
-  onPress?: () => void;
+  onPress?: (item:CardType) => void;
 };
 
 const CardView = (props: Props) => {

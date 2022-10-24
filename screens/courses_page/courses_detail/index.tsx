@@ -4,15 +4,18 @@ import SegmentedPicker from '../../../components/SegmentedPicker';
 import {CommentInfo} from './comment/CommentCard';
 import Comment from './comment';
 import CourseInfo, { CourseInfoData } from './courseInfo';
-type Props = {};
+import { CardType } from '../CoursesScreen'
 
-const CoursesDetail = (props: Props) => {
+
+
+const CoursesDetail = (prop:CardType) => {
   const [label, changeLabel] = useState('a');
-  const labelChange = (value: any) => {
+  const labelChange = (value: any) =>  {
     changeLabel(value);
   };
 
-  let course;
+  console.log('Detail')
+  
   let commentInfo:Array<CommentInfo>=[
     {username:'贴贴用户',subHeadline:'June 22,2022',commentText:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit porro similique quo reiciendis esse iste, inventore cupiditate consequuntur minima architecto vel, placeat quos impedit illo nesciunt maiores. Ex, accusamus eveniet? '},
     {username:'贴贴用户',subHeadline:'June 22,2022',commentText:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit porro similique quo reiciendis esse iste, inventore cupiditate consequuntur minima architecto vel, placeat quos impedit illo nesciunt maiores. Ex, accusamus eveniet? '},
@@ -22,15 +25,25 @@ const CoursesDetail = (props: Props) => {
    
   ];
 
-  let courseInfoData:CourseInfoData={
-    coursename:'Advanced Algorithm',
-    professor:'Sanjoy Baruah',
-    semester:'spring-2022',
-    timespend:5,
-    difficulty:4,
-    coursecomment:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit porro similique quo reiciendis esse iste, inventore cupiditate consequuntur minima architecto vel, placeat quos impedit illo nesciunt maiores. Ex, accusamus eveniet? ', 
-  }
+  // let courseInfoData:CourseInfoData={
+  //   coursename:prop.courseName,
+  //   professor:prop.professor,
+  //   semester:prop.semester,
+  //   timespend:prop.workload,
+  //   difficulty:prop.difficulty,
+  //   coursecomment:prop.comments
+  // }
 
+  let courseInfoData:CourseInfoData={
+    coursename:"dss",
+    professor:"s",
+    semester:'s',
+    timespend:'3',
+    difficulty:'s',
+    coursecomment:'s'
+  }
+  
+  console.log(prop.courseName)
   
   return (
     <>

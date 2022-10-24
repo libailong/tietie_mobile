@@ -9,12 +9,12 @@ type Props = {
 };
 
 export type CourseInfoData = {
-    coursename: string;
-    professor: string;
-    semester: string;
-    timespend: number;
-    difficulty: number;
-    coursecomment: string;
+    coursename: String;
+    professor: String;
+    semester: String;
+    timespend: String;
+    difficulty: String;
+    coursecomment: String;
 };
 
 const CourseInfo = (props: Props) => {

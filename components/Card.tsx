@@ -3,7 +3,7 @@ import React from 'react'
 
 type Props = {
       children?: React.ReactNode;
-      onPress?: () => void;
+      onPress?: (() => void) | ((data:any) => void);
       style?: StyleProp<ViewStyle>
 }
 

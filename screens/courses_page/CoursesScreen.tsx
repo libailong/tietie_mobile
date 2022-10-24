@@ -1,9 +1,11 @@
 import {StyleSheet, Text, View} from 'react-native';
 import SegmentedPicker from '../../components/SegmentedPicker';
+import SearchBar from '../../components/SearchBar';
 import React, {useEffect, useState} from 'react';
 import CardList from './card_list';
 import type {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {CoursesStackParams} from '../../navigation';
+
 
 type Props = NativeStackScreenProps<CoursesStackParams, 'Courses'>;
 
@@ -27,58 +29,12 @@ export type CardType = {
 // static uri, should be changed in different localhost
 const staticImage = './card_list/images/icon-192x192.png';
 
-// let value: Card[] = [
-//   {
-//     title: 'Advanced Algorithm',
-//     subtitle_1: 'WUSTL-CSE541T',
-//     subtitle_2: 'Spring-2022',
-//     content: '这门课能劝一个是一个，除非你是对算法非常感兴趣，否则不要选。',
-//     username: 'tietie用户b',
-//     date: 'Sun Jun 26 2022',
-//     userimage: staticImage,
-//     contentimage: staticImage,
-//   },
-//   {
-//     title: 'Advanced Algorithm',
-//     subtitle_1: 'WUSTL-CSE541T',
-//     subtitle_2: 'Spring-2022',
-//     content: '这门课能劝一个是一个，除非你是对算法非常感兴趣，否则不要选。',
-//     username: 'tietie用户b',
-//     date: 'Sun Jun 26 2022',
-//     userimage: staticImage,
-//     contentimage: staticImage,
-//   },
-//   {
-//     title: 'Advanced Algorithm',
-//     subtitle_1: 'WUSTL-CSE541T',
-//     subtitle_2: 'Spring-2022',
-//     content: '这门课能劝一个是一个，除非你是对算法非常感兴趣，否则不要选。',
-//     username: 'tietie用户b',
-//     date: 'Sun Jun 26 2022',
-//     userimage: staticImage,
-//     contentimage: staticImage,
-//   },
-//   {
-//     title: 'Advanced Algorithm',
-//     subtitle_1: 'WUSTL-CSE541T',
-//     subtitle_2: 'Spring-2022',
-//     content: '这门课能劝一个是一个，除非你是对算法非常感兴趣，否则不要选。',
-//     username: 'tietie用户b',
-//     date: 'Sun Jun 26 2022',
-//     userimage: staticImage,
-//     contentimage: staticImage,
-//   },
-// ];
+
 
 const CoursesScreen = ({route, navigation}: Props) => {
   const [cardValue, setCoursesValue] = useState([]);
   useEffect(() => {
     fetch(`https://www.tietieus.com/api/course/course_feedbacks`, {
-      //   headers : {
-      //     //"Content-Type" : "application/json",
-      //     "Access-Control-Allow-Headers" : "Content-Type",
-      //     "Access-Control-Allow-Origin": "*",
-      // },
     }).then(response => {
       if (!response.ok) {
         throw new Error(`Error! status: ${response.status}`);
@@ -88,8 +44,8 @@ const CoursesScreen = ({route, navigation}: Props) => {
     
   }, []);
 
-  const onPress = () => {
-    navigation.navigate('Details');
+  const onPress = (item:CardType) => {
+    navigation.navigate('Details',item);
   };
 
   const [label, changeLabel] = useState('b');
@@ -108,14 +64,23 @@ const CoursesScreen = ({route, navigation}: Props) => {
 //     setCardValue(value);
 //   }, [label]);
 
+
+const onSubmit =  (searchText: string) => {};
+
   return (
-    <View style={{flex: 1}}>
+    <>
+    <View>
+    <SearchBar  onSubmit={onSubmit}></SearchBar>
+   
+    </View>
+    <CardList data={cardValue} onPress={onPress}></CardList>
+    {/* <View style={{flex: 1}}>
       <SegmentedPicker
         data={{A: 'b', C: 'd', E: 'f'}}
         onValueChanged={labelChange}
-      />
-      <CardList data={cardValue} onPress={onPress}></CardList>
-    </View>
+      /> 
+    </View> */}
+    </>
   );
 };
 

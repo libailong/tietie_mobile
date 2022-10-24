@@ -70,8 +70,8 @@ function HomeStackScreen() {
 
 const CoursesStack = createNativeStackNavigator();
 export type CoursesStackParams = {
-    Courses: undefined;
-    Details: undefined;
+    Courses: undefined | {data:any};
+    Details: any;
 }
 
 function CoursesStackScreen() {
